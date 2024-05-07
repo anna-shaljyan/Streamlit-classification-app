@@ -70,7 +70,22 @@ def main():
 
     # Header
     st.title("Armenian Books Genre Classifier")
-    st.image("books.jpg", width = 500)
+    st.image("books.jpg", width = 250)
+        # Make prediction
+    if st.sidebar.button("Predict Genre"):
+        # Transform the preprocessed text using the loaded TfidfVectorizer
+        tfidf_matrix = tfidf_vectorizer.transform([preprocessed_text])
+        # Make prediction
+        prediction_probs = model.predict_proba(tfidf_matrix)[0]
+        
+        # Get top 5 predicted classes and their probabilities
+        top_classes = model.classes_[prediction_probs.argsort()[::-1][:5]]
+        top_probs = prediction_probs[prediction_probs.argsort()[::-1][:5]]
+        
+        # Print the top 5 predicted classes and their probabilities
+        for i in range(len(top_classes)):
+            st.success(f"Predicted Genre: {top_classes[i]} ({top_probs[i]*100:.2f}%)")
+            
     st.markdown("""
     Գրքերի ժանրերը:
 - Ժամանակակից գրականություն              1790
@@ -111,20 +126,20 @@ def main():
     with open("tfidf_vectorizer-update.pkl", "rb") as f:
         tfidf_vectorizer = pickle.load(f)
 
-    # Make prediction
-    if st.sidebar.button("Predict Genre"):
-        # Transform the preprocessed text using the loaded TfidfVectorizer
-        tfidf_matrix = tfidf_vectorizer.transform([preprocessed_text])
-        # Make prediction
-        prediction_probs = model.predict_proba(tfidf_matrix)[0]
+    # # Make prediction
+    # if st.sidebar.button("Predict Genre"):
+    #     # Transform the preprocessed text using the loaded TfidfVectorizer
+    #     tfidf_matrix = tfidf_vectorizer.transform([preprocessed_text])
+    #     # Make prediction
+    #     prediction_probs = model.predict_proba(tfidf_matrix)[0]
         
-        # Get top 5 predicted classes and their probabilities
-        top_classes = model.classes_[prediction_probs.argsort()[::-1][:5]]
-        top_probs = prediction_probs[prediction_probs.argsort()[::-1][:5]]
+    #     # Get top 5 predicted classes and their probabilities
+    #     top_classes = model.classes_[prediction_probs.argsort()[::-1][:5]]
+    #     top_probs = prediction_probs[prediction_probs.argsort()[::-1][:5]]
         
-        # Print the top 5 predicted classes and their probabilities
-        for i in range(len(top_classes)):
-            st.success(f"Predicted Genre: {top_classes[i]} ({top_probs[i]*100:.2f}%)")
+    #     # Print the top 5 predicted classes and their probabilities
+    #     for i in range(len(top_classes)):
+    #         st.success(f"Predicted Genre: {top_classes[i]} ({top_probs[i]*100:.2f}%)")
 
     # Load book data
     df = load_data()
