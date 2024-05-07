@@ -105,11 +105,11 @@ def main():
     preprocessed_text = preprocess_text(text)
 
     # Load the pre-trained CatBoost model
-    with open("catboost-model-merged.pkl", "rb") as f:
+    with open("catboost-model-final.pkl", "rb") as f:
         model = pickle.load(f)
 
     # Load the pre-trained TfidfVectorizer
-    with open("tfidf_vectorizer-update.pkl", "rb") as f:
+    with open("tfidf_vectorizer-final.pkl", "rb") as f:
         tfidf_vectorizer = pickle.load(f)
 
     # Make prediction
