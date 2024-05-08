@@ -60,8 +60,10 @@ def main():
         """
         <style>
         body {
-            background-color: #f0f2f6;
+            # background-color: #f0f2f6;
             font-family: Arial, sans-serif;
+            background-image: url("books_bg.jpg");
+            background-size: cover;
         }
         </style>
         """,
