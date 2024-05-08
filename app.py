@@ -10,7 +10,7 @@ from catboost import CatBoostClassifier
 # Load your Excel file containing the book data
 @st.cache_data
 def load_data():
-    df = pd.read_excel("merged-armenian-books-dataset.xlsx")
+    df = pd.read_excel("merged-armenian-books-dataset-new.xlsx")
     # Remove duplicates based on 'title' and 'author' combination
     df = df.drop_duplicates(subset=['Title', 'Author'])
     # Select only required columns
