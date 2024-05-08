@@ -55,58 +55,24 @@ def main():
     # Set page title and favicon
     st.set_page_config(page_title="Armenian Books Genre Classifier", page_icon="📚")
 
-    # Set background color and font
-    # st.markdown(
-    #     """
-    #     <style>
-    #     body {
-    #         # background-color: #f0f2f6;
-    #         background-image: url("books_bg.jpg");
-    #         background-size: cover;
-    #         font-family: Arial, sans-serif;
-    #     }
-    #     </style>
-    #     """,
-    #     unsafe_allow_html=True
-    # )
-
+    #Set background color and font
     st.markdown(
-    """
-    <style>
-    .reportview-container .markdown-text-container {
-        font-family: monospace;
-    }
-    .sidebar .sidebar-content {
-        background-image: url("books_bg.jpg");
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
-    .Widget>label {
-        color: white;
-        font-family: monospace;
-    }
-    [class^="st-b"] {
-        color: white;
-        font-family: monospace;
-    }
-    .st-bb {
-        background-color: transparent;
-    }
-    .st-at {
-        background-color: #0c0080;
-    }
-    footer {
-        color: white;
-        font-family: monospace;
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+        """
+        <style>
+        body {
+            background-color: #f0f2f6;
+            # background-image: url("books_bg.jpg");
+            # background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
     # Header
     st.title("Armenian Books Genre Classifier")
-    st.image("books.jpg", width = 350)
+    st.image("books_bg.jpg", width = 350)
             
 #     st.markdown("""
 #     Գրքերի ժանրերը:
