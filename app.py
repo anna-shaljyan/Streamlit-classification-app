@@ -72,7 +72,7 @@ def main():
 
     # Header
     st.title("Armenian Books Genre Classifier")
-    st.image("books_bg.jpg", width = 350)
+    st.image("bookss.jpg", width = 400)
             
 #     st.markdown("""
 #     Գրքերի ժանրերը:
