@@ -131,34 +131,15 @@ def main():
 
     # Load book data
     df = load_data()
-
-# Define the pages
-    pages = {
-    "Book Genre Classifier": "classifier",
-    "Explore Book Data": "explorer"
-    }
-
-# Sidebar navigation
-    selected_page = st.sidebar.radio("Navigation", list(pages.keys()))
-
-# Display content based on selected page
-    if selected_page == "Book Genre Classifier":
-        # Display classifier content
-        st.title("Book Genre Classifier")
-        st.write("This is the classifier page.")
-    elif selected_page == "Explore Book Data":
-        # Display explorer content
-        st.title("Explore Book Data")
-        st.write("This is the explorer page.")
     
-    # # Option to switch between pages
-    # page = st.sidebar.radio("Navigation", ["Book Genre Classifier", "Explore Book Data"])
+    # Option to switch between pages
+    page = st.sidebar.radio("Navigation", ["Book Genre Classifier", "Explore Book Data"])
 
-    # # Display selected page
-    # if page == "Book Genre Classifier":
-    #     pass  # This page is already implemented above
-    # elif page == "Explore Book Data":
-    #     explore_data(df)
+    # Display selected page
+    if page == "Book Genre Classifier":
+        pass  # This page is already implemented above
+    elif page == "Explore Book Data":
+        explore_data(df)
 
 if __name__ == "__main__":
     main()
